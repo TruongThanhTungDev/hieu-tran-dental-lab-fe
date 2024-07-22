@@ -1,4 +1,10 @@
 <nz-layout>
-  <router-outlet></router-outlet>
-  Hello World
+  <nz-layout class="min-h-screen">
+    <nz-header class="fixed w-full bg-white">
+    </nz-header>
+    <nz-content>
+      <router-outlet></router-outlet>
+    </nz-content>
+    <nz-footer>Footer</nz-footer>
+  </nz-layout>
 </nz-layout>
