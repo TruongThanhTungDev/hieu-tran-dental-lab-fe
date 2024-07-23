@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 import { NzButtonModule } from "ng-zorro-antd/button";
 import { LayoutRoutes } from "./layout.routing";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HomePageComponent } from "../pages/home/home.component";
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     ReactiveFormsModule,
     NzButtonModule,
   ],
-  declarations: [],
+  declarations: [HomePageComponent],
   providers: [],
 })
 export class LayoutModule {}

@@ -1,10 +1,16 @@
-<nz-layout>
-  <nz-layout class="min-h-screen">
-    <nz-header class="fixed w-full bg-white">
-    </nz-header>
-    <nz-content>
-      <router-outlet></router-outlet>
-    </nz-content>
-    <nz-footer>Footer</nz-footer>
-  </nz-layout>
+<nz-layout class="!bg-main !min-h-screen">
+  <nz-header class="fixed w-full bg-header flex justify-between !text-white font-bold text-lg items-center !py-12">
+    <div>
+      Logo
+    </div>
+    <div class="flex items-center gap-16">
+      <div *ngFor="let item of listMenu" class="uppercase cursor-pointer hover:scale-125 transition-transform">
+        {{item.name}}
+      </div>
+    </div>
+  </nz-header>
+  <nz-content class="h-full mt-28 !container !text-white">
+    <router-outlet></router-outlet>
+  </nz-content>
+  <nz-footer>Footer</nz-footer>
 </nz-layout>

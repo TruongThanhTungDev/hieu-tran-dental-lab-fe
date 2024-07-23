@@ -6,5 +6,27 @@ import { Component } from "@angular/core";
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent {
+  listMenu = [
+    {
+      name: 'Trang chủ',
+      path: '',
+    },
+    {
+      name: 'Giới thiệu',
+      path: 'gioi-thieu'
+    },
+    {
+      name: 'Sản phẩm',
+      path: 'san-pham'
+    },
+    {
+      name: 'Bảo hành',
+      path: 'bao-hanh',
+    },
+    {
+      name: 'Liên hệ',
+      path: 'lien-he'
+    }
+  ]
   constructor() {}
 }
