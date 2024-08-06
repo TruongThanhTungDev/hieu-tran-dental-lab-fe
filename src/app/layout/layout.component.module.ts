@@ -5,6 +5,7 @@ import { NzButtonModule } from "ng-zorro-antd/button";
 import { LayoutRoutes } from "./layout.routing";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HomePageComponent } from "../pages/home/home.component";
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { HomePageComponent } from "../pages/home/home.component";
     FormsModule,
     ReactiveFormsModule,
     NzButtonModule,
+    NzCarouselModule,
   ],
   declarations: [HomePageComponent],
   providers: [],

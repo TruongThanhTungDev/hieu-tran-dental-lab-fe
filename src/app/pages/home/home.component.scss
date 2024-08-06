@@ -1,0 +1,26 @@
+[nz-carousel-content] {
+  width: 100%;
+}
+.gradient-border {
+  position: relative;
+  border-radius: 15px; /* Bo tròn các góc của phần tử chính */
+  padding: 8px;
+  background: linear-gradient(
+    315deg,
+    #ffffff 0%,
+    #8d601c 74%
+  ); /* Màu nền cho phần tử chính */
+  text-align: center;
+}
+.zoom-image-scale:hover {
+  img {
+    transform: scale(1.2);
+    transition: 0.5s;
+  }
+}
+.zoom-image-scale {
+  img {
+    overflow: hidden;
+    transition: 0.5s;
+  }
+}

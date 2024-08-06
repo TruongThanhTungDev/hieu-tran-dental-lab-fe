@@ -1,3 +1,45 @@
 <div>
-  aaa
+  <div>
+    <nz-carousel nzAutoPlay [nzAutoPlaySpeed]="4000" class="h-[700px]">
+      <div *ngFor="let item of listHeaderCarousel" nz-carousel-content class="h-full w-full relative">
+        <div class="w-full h-full z-10 absolute"></div>
+        <img [src]="item" alt="" class="w-full h-full object-cover">
+      </div>
+    </nz-carousel>
+  </div>
+  <div class="container py-6">
+    <div class="text-center text-white mb-6">
+      <span class="border-b-2 border-red-800 text-2xl font-bold">
+        SẢN PHẨM
+      </span>
+    </div>
+    <div class="flex gap-8 justify-center">
+      <div>
+        <div class="h-[262px] flex-1 gradient-border rounded-lg zoom-image-scale">
+          <img src="../../../assets/images/carousel/rang-su-nacera-3.jpg" alt="" class="w-full h-full object-cover rounded-lg">
+        </div>
+        <div>
+          SỨ NACERA
+        </div>
+      </div>
+      <div>
+        <div class="h-[262px] flex-1 gradient-border rounded-lg zoom-image-scale">
+          <img src="../../../assets/images/carousel/ddbio.jpg" alt=""
+            class="w-full h-full object-cover rounded-lg">
+        </div>
+        <div>
+          RĂNG SỨ DDBIO
+        </div>
+      </div>
+      <div>
+        <div class="h-[262px] flex-1 gradient-border rounded-lg zoom-image-scale">
+          <img src="../../../assets/images/carousel/venus.png" alt=""
+            class="w-full h-full object-cover rounded-lg">
+        </div>
+        <div>
+          SỨ NACERA
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

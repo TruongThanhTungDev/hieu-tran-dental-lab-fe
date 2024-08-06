@@ -1,5 +1,5 @@
 <nz-layout class="!bg-main !min-h-screen">
-  <nz-header class="fixed w-full bg-header flex justify-between !text-white font-bold text-lg items-center !py-12">
+  <nz-header class="fixed z-10 w-full bg-header flex justify-between !text-white font-bold text-lg items-center !py-12">
     <div>
       Logo
     </div>
@@ -9,8 +9,44 @@
       </div>
     </div>
   </nz-header>
-  <nz-content class="h-full mt-28 !container !text-white">
+  <nz-content class="h-full mt-24 !text-white">
     <router-outlet></router-outlet>
   </nz-content>
-  <nz-footer>Footer</nz-footer>
+  <nz-footer class="grid grid-cols-3 gap-32 bg-header !text-white !py-12">
+    <div>
+      <div class="font-bold text-base mb-8">VỀ CHÚNG TÔI</div>
+      <div class="text-sm text-justify">
+        HIEUTRAN DENTAL LAB chuyên cung cấp các sản phẩm phục hình răng giả chất lượng cao với trang thiết bị hiện đại, vật
+        liệu nhập khẩu chính hãng từ Hoa kỳ, CHLB Đức và Nhật Bản. Đặc biệt là các sản phẩm răng toàn sứ LAVA 3M, NACERA,
+        CERAMILL, HT SMILE, CERCON, VENUS, KATANA, VITAZIR... được sản xuất bằng công nghệ CAD/CAM trên vật liệu ZICONIA đạt
+        tiêu chuẩn quốc tế, đáp ứng tốt nhất những đòi hỏi khắt khe về tính thẩm mỹ, tính chính xác, đảm bảo sức khỏe của khách
+        hàng sử dụng sản phẩm.
+        <br/><br/>
+        Đến với HIEUTRAN DENTAL LAB chắc chắn quý khách sẽ hài lòng về các sản phẩm và dịch vụ của công ty chúng tôi!
+      </div>
+    </div>
+    <div>
+      <div class="font-bold text-base mb-8 ">HURRY UP AND CONTACT US TO GET THE LATEST OFFER</div>
+      <div class="font-bold text-base mb-4">HIEUTRAN DENTAL LAB</div>
+      <div>
+        <p>
+          - Phone: 0982.875.357 / 0978.328.198
+        </p>
+        <p>
+          - Email: {{'hieutrandental@gmail.com'}}
+        </p>
+        <p>
+          - Addres: No.04, Alley 338, Bach Dang Street, Chuong Duong Do, Hoan Kiem District, Hanoi City
+        </p>
+      </div>
+    </div>
+    <div>
+      <div class="font-bold text-base mb-8">FANPAGE</div>
+      <iframe
+        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftranhieuu&tabs&width=340&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+        width="340" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"
+        allow="encrypted-media">
+      </iframe>
+    </div>
+  </nz-footer>
 </nz-layout>
