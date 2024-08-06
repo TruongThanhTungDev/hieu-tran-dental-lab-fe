@@ -8,9 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { LayoutComponent } from "./layout/layout.component";
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzInputModule } from 'ng-zorro-antd/input'
+import { CommonModule } from "@angular/common";
+import { LoginComponent } from "./pages/admin/login/login.component";
 @NgModule({
-  declarations: [AppComponent, LayoutComponent],
+  declarations: [AppComponent, LayoutComponent, LoginComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -19,6 +23,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
     BrowserAnimationsModule,
     NzButtonModule,
     NzLayoutModule,
+    NzInputModule,
   ],
   bootstrap: [AppComponent],
 })
