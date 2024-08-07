@@ -16,6 +16,11 @@ import { LoginComponent } from "./pages/admin/login/login.component";
 import { AdminLayoutComponent } from "./admin-layout/admin-layout.component";
 import { NZ_I18N, vi_VN } from "ng-zorro-antd/i18n";
 import vi from '@angular/common/locales/vi';
+import { AddProductPopup } from "./shared/popup/add-product/add-product.component";
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzSelectModule } from "ng-zorro-antd/select";
+import { NzDatePickerModule } from "ng-zorro-antd/date-picker";
+import { NzCarouselModule } from "ng-zorro-antd/carousel";
 registerLocaleData(vi);
 @NgModule({
   declarations: [
@@ -23,6 +28,7 @@ registerLocaleData(vi);
     LayoutComponent,
     AdminLayoutComponent,
     LoginComponent,
+    AddProductPopup,
   ],
   imports: [
     CommonModule,
@@ -37,6 +43,10 @@ registerLocaleData(vi);
     NzInputModule,
     NzMenuModule,
     NzIconModule,
+    NzFormModule,
+    NzSelectModule,
+    NzDatePickerModule,
+    NzCarouselModule
   ],
   bootstrap: [AppComponent],
   providers: [{ provide: NZ_I18N, useValue: vi_VN }],

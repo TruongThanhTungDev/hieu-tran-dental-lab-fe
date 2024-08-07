@@ -1,4 +1,4 @@
-<nz-layout class="!bg-main !min-h-screen">
+<nz-layout class="!bg-main !min-h-screen relative">
   <nz-header class="fixed z-10 w-full bg-header flex justify-between !text-white font-bold text-lg items-center !py-12">
     <div>
       Logo
@@ -49,4 +49,22 @@
       </iframe>
     </div>
   </nz-footer>
+  <div class="fixed bottom-16 right-12 flex flex-col justify-end items-end">
+    <div>
+      <span nz-icon [nzType]="isShowCarousel ? 'double-left' : 'double-right'" nzTheme="outline" class="!text-white bg-black text-xl" (click)="isShowCarousel = !isShowCarousel"></span>
+    </div>
+    <div [class]="isShowCarousel ? 'carousel-show' : 'carousel-hide'" class="carousel">
+      <img src="../../assets/images/carousel/search-1.jpg" alt="Ảnh 1">
+      <img src="../../assets/images/carousel/search-2.jpg" alt="Ảnh 2">
+      <img src="../../assets/images/carousel/search-3.jpg" alt="Ảnh 3">
+    </div>
+    <nz-input-group [class]="isShowCarousel ? 'carousel-show' : 'carousel-hide'" nzSearch nzSize="large" class="!w-[250px]" [nzAddOnAfter]="suffixButton">
+      <input type="text" nz-input placeholder="Tra cứu bảo hành" />
+    </nz-input-group>
+    <ng-template #suffixButton>
+      <button nz-button nzType="primary" nzSize="large" (click)="traCuu()">
+        <span nz-icon nzType="search"></span>
+      </button>
+    </ng-template>
+  </div>
 </nz-layout>

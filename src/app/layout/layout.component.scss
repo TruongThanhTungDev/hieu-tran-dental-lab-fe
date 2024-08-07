@@ -1,4 +1,63 @@
 .bg-header {
-  background-color: #000000!important;
-  background-image: linear-gradient(-315deg, #000000 50%, #8d601c 74%)!important;
+  background-color: #000000 !important;
+  background-image: linear-gradient(
+    -315deg,
+    #000000 50%,
+    #8d601c 74%
+  ) !important;
+}
+.carousel {
+  position: relative;
+  width: 250px;
+  height: 150px;
+  overflow: hidden;
+}
+.carousel img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: carousel 3s infinite;
+}
+.carousel img:nth-child(1) {
+  animation-delay: 0s;
+}
+.carousel img:nth-child(2) {
+  animation-delay: 1s;
+}
+.carousel img:nth-child(3) {
+  animation-delay: 2s;
+}
+.carousel-hide {
+  transform: translateX(300px);
+  transition: 0.25s ease-in-out;
+}
+.carousel-show {
+  transform: translateX(0);
+  transition: 0.25s ease-in-out;
+}
+@keyframes hide-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-300px);
+  }
+}
+@keyframes carousel {
+  0% {
+    opacity: 0;
+  }
+  11.11% {
+    opacity: 1;
+  }
+  33.33% {
+    opacity: 1;
+  }
+  44.44% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }

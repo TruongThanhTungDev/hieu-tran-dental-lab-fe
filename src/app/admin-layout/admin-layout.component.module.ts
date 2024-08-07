@@ -10,6 +10,9 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NZ_I18N, vi_VN } from "ng-zorro-antd/i18n";
 import en from '@angular/common/locales/en';
+import { NzButtonModule } from "ng-zorro-antd/button";
+import { NzModalModule } from "ng-zorro-antd/modal";
+import { NzIconModule } from "ng-zorro-antd/icon";
 registerLocaleData(en);
 @NgModule({
   imports: [
@@ -21,6 +24,9 @@ registerLocaleData(en);
     NzInputModule,
     NzDatePickerModule,
     NzSelectModule,
+    NzButtonModule,
+    NzModalModule,
+    NzIconModule
   ],
   declarations: [HomeComponent],
   providers: [],

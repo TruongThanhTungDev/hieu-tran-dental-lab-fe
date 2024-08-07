@@ -6,6 +6,8 @@ import { LayoutRoutes } from "./layout.routing";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HomePageComponent } from "../pages/home/home.component";
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+import { TraCuuBaoHanh } from "../pages/tra-cuu-bao-hanh/tra-cuu-bao-hanh.component";
+import { NzInputModule } from "ng-zorro-antd/input";
 
 @NgModule({
   imports: [
@@ -15,8 +17,9 @@ import { NzCarouselModule } from 'ng-zorro-antd/carousel';
     ReactiveFormsModule,
     NzButtonModule,
     NzCarouselModule,
+    NzInputModule
   ],
-  declarations: [HomePageComponent],
+  declarations: [HomePageComponent, TraCuuBaoHanh],
   providers: [],
 })
 export class LayoutModule {}

@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-layout',
@@ -6,6 +7,7 @@ import { Component } from "@angular/core";
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent {
+  isShowCarousel = true
   listMenu = [
     {
       name: 'Trang chủ',
@@ -13,11 +15,11 @@ export class LayoutComponent {
     },
     {
       name: 'Giới thiệu',
-      path: 'gioi-thieu'
+      path: 'gioi-thieu',
     },
     {
       name: 'Sản phẩm',
-      path: 'san-pham'
+      path: 'san-pham',
     },
     {
       name: 'Bảo hành',
@@ -25,8 +27,14 @@ export class LayoutComponent {
     },
     {
       name: 'Liên hệ',
-      path: 'lien-he'
-    }
-  ]
-  constructor() {}
+      path: 'lien-he',
+    },
+  ];
+  constructor(private router: Router) {}
+  traCuu() {
+    this.router.navigate(['/tra-cuu-bao-hanh']);
+  }
+  hideCarousel() {
+    this.isShowCarousel = false
+  }
 }

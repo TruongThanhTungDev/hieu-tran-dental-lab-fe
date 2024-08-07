@@ -3,6 +3,9 @@
     Quản lý sản phẩm
   </div>
   <div>
+    <div class="mb-4">
+      <button nz-button nzType="primary" (click)="addNewProduct()">Thêm mới sản phẩm</button>
+    </div>
     <div class="mb-4 grid grid-cols-3 gap-4">
       <div>
         <div>
@@ -48,6 +51,7 @@
           <th>Số răng</th>
           <th>Vật liệu</th>
           <th>Thời gian bảo hành</th>
+          <th>Thao tác</th>
         </tr>
       </thead>
       <tbody>
@@ -58,6 +62,12 @@
           <td>{{ data.address }}</td>
           <td>{{ data.address }}</td>
           <td>{{ data.address }}</td>
+          <td class="flex items-center justify-center">
+            <div class="flex gap-4">
+              <button nz-button nzType="primary"><span nz-icon nzType="edit" (click)="editProduct()"></span></button>
+              <button nz-button nzType="primary" nzDanger><span nz-icon nzType="delete"></span></button>
+            </div>
+          </td>
         </tr>
       </tbody>
     </nz-table>

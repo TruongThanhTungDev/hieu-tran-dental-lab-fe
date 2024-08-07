@@ -1,0 +1,44 @@
+<form nz-form [formGroup]="productInformation">
+  <div class="grid grid-cols-2 gap-4">
+    <nz-form-item>
+      <nz-form-control>
+        <div>Mã số</div>
+        <input nz-input placeholder="Mã số" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+        <div>Tên bệnh nhân</div>
+        <input nz-input placeholder="Tên bệnh nhân" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+        <div>Phòng khám - Bác sĩ</div>
+        <input nz-input placeholder="VD: Phòng X - Bác sĩ Y" />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+        <div>Số răng</div>
+        <input nz-input placeholder="Số răng" type="number"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+        <div>Vật liệu</div>
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Chọn vật liệu" class="w-full">
+          <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+          <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+          <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+        <div>Thời gian bảo hành</div>
+        <nz-range-picker nzFormat="dd/MM/yyyy" class="w-full"></nz-range-picker>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+</form>
