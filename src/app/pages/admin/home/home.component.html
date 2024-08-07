@@ -1,0 +1,65 @@
+<div>
+  <div class="text-3xl font-bold mb-10">
+    Quản lý sản phẩm
+  </div>
+  <div>
+    <div class="mb-4 grid grid-cols-3 gap-4">
+      <div>
+        <div>
+          Tìm kiếm theo tên bệnh nhân
+        </div>
+        <input nz-input placeholder="Nhập tên bệnh nhân" />
+      </div>
+      <div>
+        <div>
+          Tìm kiếm theo mã số
+        </div>
+        <input nz-input placeholder="Nhập mã số" />
+      </div>
+      <div>
+        <div>
+          Tìm kiếm theo phòng khám/bác sĩ
+        </div>
+        <input nz-input placeholder="Nhập phòng khám/bác sĩ" />
+      </div>
+      <div>
+        <div>
+          Tìm kiếm theo hạn sử dụng
+        </div>
+        <nz-range-picker nzFormat="dd/MM/yyyy" class="w-full"></nz-range-picker>
+      </div>
+      <div>
+        <div>
+          Tìm kiếm theo vật liệu
+        </div>
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Chọn vật liệu" class="w-full">
+          <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+          <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+          <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+    <nz-table #basicTable [nzData]="listOfData">
+      <thead>
+        <tr>
+          <th>Mã số</th>
+          <th>Tên bệnh nhân</th>
+          <th>Phòng Khám - Bác sĩ</th>
+          <th>Số răng</th>
+          <th>Vật liệu</th>
+          <th>Thời gian bảo hành</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data" class="cursor-pointer">
+          <td>{{ data.name }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

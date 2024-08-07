@@ -1,0 +1,21 @@
+<nz-layout class="min-h-screen h-screen">
+  <nz-sider nzCollapsible nzWidth="200px" class="text-white font-bold py-3">
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item>
+        <span nz-icon nzType="pie-chart"></span>
+        <span>Quản lý sản phẩm</span>
+      </li>
+      <li nz-menu-item>
+        <span nz-icon nzType="user"></span>
+        <span>Tài khoản</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-content>
+      <div class="p-4">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
