@@ -37,7 +37,7 @@ export class TraCuuBaoHanh implements OnInit {
           }
         },
         (err) => {
-          // this.notify.error(err.error.message)
+          this.notify.error(err.error.message)
           this.data = null;
         }
       );
