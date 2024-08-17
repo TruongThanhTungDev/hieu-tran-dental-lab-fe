@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -21,6 +21,9 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzSelectModule } from "ng-zorro-antd/select";
 import { NzDatePickerModule } from "ng-zorro-antd/date-picker";
 import { NzCarouselModule } from "ng-zorro-antd/carousel";
+import { HeadersInterceptor } from "./headers-intercepter";
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+
 registerLocaleData(vi);
 @NgModule({
   declarations: [
@@ -46,9 +49,17 @@ registerLocaleData(vi);
     NzFormModule,
     NzSelectModule,
     NzDatePickerModule,
-    NzCarouselModule
+    NzCarouselModule,
+    NzSpinModule
   ],
   bootstrap: [AppComponent],
-  providers: [{ provide: NZ_I18N, useValue: vi_VN }],
+  providers: [
+    { provide: NZ_I18N, useValue: vi_VN },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeadersInterceptor,
+      multi: true,
+    },
+  ],
 })
 export class AppModule {}

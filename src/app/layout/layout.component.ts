@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
 })
 export class LayoutComponent {
   isShowCarousel = true
+  code: any
   listMenu = [
     {
       name: 'Trang chủ',
@@ -32,7 +33,11 @@ export class LayoutComponent {
   ];
   constructor(private router: Router) {}
   traCuu() {
-    this.router.navigate(['/tra-cuu-bao-hanh']);
+    this.router.navigate(['/tra-cuu-bao-hanh'], {
+      queryParams: {
+        code: this.code
+      }
+    });
   }
   hideCarousel() {
     this.isShowCarousel = false

@@ -59,7 +59,7 @@
       <img src="../../assets/images/carousel/search-3.jpg" alt="Ảnh 3">
     </div>
     <nz-input-group [class]="isShowCarousel ? 'carousel-show' : 'carousel-hide'" nzSearch nzSize="large" class="!w-[250px]" [nzAddOnAfter]="suffixButton">
-      <input type="text" nz-input placeholder="Tra cứu bảo hành" />
+      <input type="text" [(ngModel)]="code" nz-input placeholder="Tra cứu bảo hành" />
     </nz-input-group>
     <ng-template #suffixButton>
       <button nz-button nzType="primary" nzSize="large" (click)="traCuu()">

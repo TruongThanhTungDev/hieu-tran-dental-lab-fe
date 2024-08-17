@@ -6,12 +6,12 @@
   </div>
   <div class="flex flex-col justify-center items-center gap-4">
     <nz-input-group nzSearch nzSize="large" class="!w-1/2" [nzAddOnAfter]="suffixButton">
-      <input type="text" nz-input placeholder="Nhập Mã số thẻ" />
+      <input type="text" [(ngModel)]="code" nz-input placeholder="Nhập Mã số thẻ" (keyup.enter)="search()"/>
     </nz-input-group>
     <ng-template #suffixButton>
-      <button nz-button class="!bg-yellow-500 !text-white" nzSize="large" nzSearch>Tra cứu</button>
+      <button (click)="search()" nz-button class="!bg-yellow-500 !text-white" nzSize="large" nzSearch>Tra cứu</button>
     </ng-template>
-    <div>
+    <div *ngIf="data">
       <div class="text-xl text-center mb-4">
         <span class="border-b-2 border-yellow-500">
           Thông tin bảo hành
@@ -22,49 +22,43 @@
           Mã số: 
         </div>
         <div>
-          HT12345
+          {{data.code}}
         </div>
         <div class="font-bold">
           Tên khách hàng:
         </div>
         <div>
-          HT12345
+          {{data.patientName}}
         </div>
         <div class="font-bold">
-          Phòng khám
+          Phòng khám/Bác sĩ
         </div>
         <div>
-          HT12345
+          {{data.doctorClinic}}
         </div>
         <div class="font-bold">
           Labo
         </div>
         <div>
-          HT12345
+          HIEUTRAN DENTAL LAB
         </div>
         <div class="font-bold">
           Vật liệu:
         </div>
         <div>
-          HT12345
-        </div>
-        <div class="font-bold">
-          Xuất xứ
-        </div>
-        <div>
-          HT12345
+          {{data.material}}
         </div>
         <div class="font-bold">
           Ngày bắt đầu
         </div>
         <div>
-          HT12345
+          {{formatDate(data.startDate)}}
         </div>
         <div class="font-bold">
           Ngày kết thúc
         </div>
         <div>
-          HT12345
+          {{formatDate(data.endDate)}}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-<div>
+<div class="flex flex-col">
   <div class="text-3xl font-bold mb-10">
     Quản lý sản phẩm
   </div>
@@ -11,65 +11,65 @@
         <div>
           Tìm kiếm theo tên bệnh nhân
         </div>
-        <input nz-input placeholder="Nhập tên bệnh nhân" />
+        <input nz-input placeholder="Nhập tên bệnh nhân" [(ngModel)]="patientName"/>
       </div>
       <div>
         <div>
           Tìm kiếm theo mã số
         </div>
-        <input nz-input placeholder="Nhập mã số" />
+        <input nz-input placeholder="Nhập mã số" [(ngModel)]="code"/>
       </div>
       <div>
         <div>
           Tìm kiếm theo phòng khám/bác sĩ
         </div>
-        <input nz-input placeholder="Nhập phòng khám/bác sĩ" />
+        <input nz-input placeholder="Nhập phòng khám/bác sĩ" [(ngModel)]="doctor"/>
       </div>
       <div>
         <div>
           Tìm kiếm theo hạn sử dụng
         </div>
-        <nz-range-picker nzFormat="dd/MM/yyyy" class="w-full"></nz-range-picker>
+        <nz-range-picker nzFormat="dd/MM/yyyy" class="w-full" [(ngModel)]="date"></nz-range-picker>
       </div>
       <div>
         <div>
           Tìm kiếm theo vật liệu
         </div>
-        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Chọn vật liệu" class="w-full">
-          <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-          <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-          <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Chọn vật liệu" class="w-full" [(ngModel)]="material">
+          <nz-option *ngFor="let item of listMaterial" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
         </nz-select>
       </div>
     </div>
-    <nz-table #basicTable [nzData]="listOfData">
-      <thead>
-        <tr>
-          <th>Mã số</th>
-          <th>Tên bệnh nhân</th>
-          <th>Phòng Khám - Bác sĩ</th>
-          <th>Số răng</th>
-          <th>Vật liệu</th>
-          <th>Thời gian bảo hành</th>
-          <th>Thao tác</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of basicTable.data" class="cursor-pointer">
-          <td>{{ data.name }}</td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td class="flex items-center justify-center">
-            <div class="flex gap-4">
-              <button nz-button nzType="primary"><span nz-icon nzType="edit" (click)="editProduct()"></span></button>
-              <button nz-button nzType="primary" nzDanger><span nz-icon nzType="delete"></span></button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </nz-table>
   </div>
+  <nz-table #basicTable [nzData]="listData" [nzScroll]="{ y: '400px' }">
+    <thead>
+      <tr>
+        <th>Mã số</th>
+        <th>Tên bệnh nhân</th>
+        <th>Phòng Khám - Bác sĩ</th>
+        <th>Số răng</th>
+        <th>Vật liệu</th>
+        <th>Thời gian bảo hành</th>
+        <th>Thao tác</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data" class="cursor-pointer">
+        <td>{{ data.code }}</td>
+        <td>{{ data.patientName }}</td>
+        <td>{{ data.doctorClinic }}</td>
+        <td>{{ data.numberOfTeeth }}</td>
+        <td>{{ data.material }}</td>
+        <td>{{ formatDate(data.startDate) }} - {{formatDate(data.endDate)}}</td>
+        <td class="flex items-center justify-center">
+          <div class="flex gap-4">
+            <button nz-button nzType="primary"><span nz-icon nzType="edit"
+                (click)="editProduct(data)"></span></button>
+            <button nz-button nzType="primary" nzDanger><span nz-icon nzType="delete"
+                (click)="deleteData(data.id)"></span></button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
 </div>
