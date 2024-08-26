@@ -51,19 +51,38 @@ export class HomeComponent implements OnInit {
   }
   getData() {
     this.isLoading = true;
-    const payload = {
-      limit: this.limit,
-      page: this.page,
-      code: this.code ? this.code : '',
-      patientName: this.patientName ? this.patientName : '',
-      doctorClinic: this.doctor ? this.doctor : '',
-      numberOfTeeth: this.numberOfTeeth ? this.numberOfTeeth : '',
-      material: this.material ? this.material : '',
-      startDate: parseInt(moment(this.date[0]).format('YYYYMMHH000000')),
-      endDate: parseInt(moment(this.date[1]).format('YYYYMMHH235959')),
-    };
+    // const payload = {
+    //   limit: this.limit,
+    //   page: this.page,
+    //   code: this.code ? this.code : '',
+    //   patientName: this.patientName ? this.patientName : '',
+    //   doctorClinic: this.doctor ? this.doctor : '',
+    //   numberOfTeeth: this.numberOfTeeth ? this.numberOfTeeth : '',
+    //   material: this.material ? this.material : '',
+    //   startDate: this.date ? parseInt(moment(this.date[0]).format('YYYYMMDD000000')) : '',
+    //   endDate: this.date ? parseInt(moment(this.date[1]).format('YYYYMMDD235959')) : '',
+    // };
+    let payload = 'page=1&limit=99999'
+    if (this.code) {
+      payload += `&code=${this.code.trim()}`
+    }
+    if (this.patientName) {
+      payload += `&patientName=${this.patientName.trim()}`;
+    }
+    if (this.doctor) {
+      payload += `&doctorClinic=${this.doctor.trim()}`;
+    }
+    if (this.numberOfTeeth) {
+      payload += `&numberOfTeeth=${this.numberOfTeeth.trim()}`;
+    }
+    if (this.material) {
+      payload += `&material=${this.material.trim()}`;
+    }
+    if (this.date && this.date.length) {
+      payload += `&startDate=${parseInt(moment(this.date[0]).format('YYYYMMDD000000'))}&endDate=${parseInt(moment(this.date[1]).format('YYYYMMDD235959'))}`
+    }
     this.dmService
-      .getOption(payload, this.REQUEST_URL, '/search')
+      .getOption('', this.REQUEST_URL, '/search?' + payload)
       .subscribe((res: HttpResponse<any>) => {
         if (res.status === 200) {
           this.listData = res.body.data;
