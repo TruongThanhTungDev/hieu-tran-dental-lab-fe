@@ -4,7 +4,7 @@
       Logo
     </div>
     <div class="flex items-center gap-16 menu">
-      <div *ngFor="let item of listMenu" class="uppercase cursor-pointer hover:scale-125 transition-transform">
+      <div *ngFor="let item of listMenu" class="uppercase cursor-pointer hover:scale-125 transition-transform" (click)="pushToRouter(item.path)">
         {{item.name}}
       </div>
     </div>
@@ -15,7 +15,7 @@
       (nzOnClose)="close()">
       <ng-container *nzDrawerContent>
         <div class="flex flex-col space-y-4">
-          <div *ngFor="let item of listMenu" class="uppercase cursor-pointer" (click)="close()">
+          <div *ngFor="let item of listMenu" class="uppercase cursor-pointer" (click)="pushToRouter(item.path)">
             {{item.name}}
           </div>
         </div>

@@ -15,23 +15,23 @@ export class LayoutComponent {
   listMenu = [
     {
       name: 'Trang chủ',
-      path: '',
+      path: '/',
     },
     {
       name: 'Giới thiệu',
-      path: 'gioi-thieu',
+      path: '/gioi-thieu',
     },
     {
       name: 'Sản phẩm',
-      path: 'san-pham',
+      path: '/san-pham',
     },
     {
       name: 'Bảo hành',
-      path: 'bao-hanh',
+      path: '/bao-hanh',
     },
     {
       name: 'Liên hệ',
-      path: 'lien-he',
+      path: '/lien-he',
     },
   ];
   constructor(private router: Router) {}
@@ -51,5 +51,9 @@ export class LayoutComponent {
 
   close(): void {
     this.visible = false;
+  }
+  pushToRouter(path: any) {
+    this.router.navigate([path]);
+    this.close()
   }
 }
