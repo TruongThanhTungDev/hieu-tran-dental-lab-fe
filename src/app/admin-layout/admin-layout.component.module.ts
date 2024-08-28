@@ -13,6 +13,9 @@ import en from '@angular/common/locales/en';
 import { NzButtonModule } from "ng-zorro-antd/button";
 import { NzModalModule } from "ng-zorro-antd/modal";
 import { NzIconModule } from "ng-zorro-antd/icon";
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NzSpinModule } from "ng-zorro-antd/spin";
 registerLocaleData(en);
 @NgModule({
   imports: [
@@ -26,7 +29,10 @@ registerLocaleData(en);
     NzSelectModule,
     NzButtonModule,
     NzModalModule,
-    NzIconModule
+    NzIconModule,
+    NzCollapseModule,
+    NzPaginationModule,
+    NzSpinModule
   ],
   declarations: [HomeComponent],
   providers: [],

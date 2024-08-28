@@ -61,3 +61,16 @@
     opacity: 0;
   }
 }
+.menu-bar {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .menu {
+    display: none;
+  }
+  .menu-bar {
+    display: block;
+    position: absolute;
+    right: 36px;
+  }
+}

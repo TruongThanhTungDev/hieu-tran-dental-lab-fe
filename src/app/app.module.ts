@@ -23,7 +23,7 @@ import { NzDatePickerModule } from "ng-zorro-antd/date-picker";
 import { NzCarouselModule } from "ng-zorro-antd/carousel";
 import { HeadersInterceptor } from "./headers-intercepter";
 import { NzSpinModule } from 'ng-zorro-antd/spin';
-
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 registerLocaleData(vi);
 @NgModule({
   declarations: [
@@ -50,7 +50,8 @@ registerLocaleData(vi);
     NzSelectModule,
     NzDatePickerModule,
     NzCarouselModule,
-    NzSpinModule
+    NzSpinModule,
+    NzDrawerModule,
   ],
   bootstrap: [AppComponent],
   providers: [

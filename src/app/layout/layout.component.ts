@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import { NzDrawerPlacement } from 'ng-zorro-antd/drawer';
 
 @Component({
   selector: 'app-layout',
@@ -7,8 +8,10 @@ import { Router } from "@angular/router";
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent {
-  isShowCarousel = true
-  code: any
+  placement: NzDrawerPlacement = 'left';
+  visible = false;
+  isShowCarousel = true;
+  code: any;
   listMenu = [
     {
       name: 'Trang chủ',
@@ -35,11 +38,18 @@ export class LayoutComponent {
   traCuu() {
     this.router.navigate(['/tra-cuu-bao-hanh'], {
       queryParams: {
-        code: this.code
-      }
+        code: this.code,
+      },
     });
   }
   hideCarousel() {
-    this.isShowCarousel = false
+    this.isShowCarousel = false;
+  }
+  open(): void {
+    this.visible = true;
+  }
+
+  close(): void {
+    this.visible = false;
   }
 }

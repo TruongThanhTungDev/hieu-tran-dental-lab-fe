@@ -12,15 +12,78 @@
   ); /* Màu nền cho phần tử chính */
   text-align: center;
 }
-.zoom-image-scale:hover {
-  img {
-    transform: scale(1.2);
-    transition: 0.5s;
-  }
+
+.zoom-image-scale {
+  height: 262px;
 }
+
 .zoom-image-scale {
   img {
     overflow: hidden;
     transition: 0.5s;
+  }
+}
+.search-container {
+  display: block; 
+}
+.carousel {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+.carousel img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: carousel 3s infinite;
+}
+.carousel img:nth-child(1) {
+  animation-delay: 0s;
+}
+.carousel img:nth-child(2) {
+  animation-delay: 1s;
+}
+.carousel img:nth-child(3) {
+  animation-delay: 2s;
+}
+.carousel-hide {
+  transform: translateX(300px);
+  transition: 0.25s ease-in-out;
+}
+.carousel-show {
+  transform: translateX(0);
+  transition: 0.25s ease-in-out;
+}
+@keyframes carousel {
+  0% {
+    opacity: 0;
+  }
+  11.11% {
+    opacity: 1;
+  }
+  33.33% {
+    opacity: 1;
+  }
+  44.44% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.search-container {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .zoom-image-scale {
+    height: 200px;
+    width: 300px;
+    margin: 0 auto;
+  }
+  .search-container {
+    display: flex;
+    justify-content: center;
   }
 }

@@ -9,15 +9,17 @@ import { OPERATIONS } from "../../../app.constants";
 @Component({
   selector: 'home-component',
   templateUrl: './home.component.html',
+  styleUrls: ['home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   listData: any[] = [];
+  totalPages = 0;
   code: any;
   patientName: any;
   doctor: any;
-  date: any;
+  date = [null, null];
   material: any;
-  numberOfTeeth: any
+  numberOfTeeth: any;
   page = 1;
   limit = 10;
   listMaterial: any[] = [
@@ -62,9 +64,9 @@ export class HomeComponent implements OnInit {
     //   startDate: this.date ? parseInt(moment(this.date[0]).format('YYYYMMDD000000')) : '',
     //   endDate: this.date ? parseInt(moment(this.date[1]).format('YYYYMMDD235959')) : '',
     // };
-    let payload = 'page=1&limit=99999'
+    let payload = `page=${this.page}&limit=${this.limit}`;
     if (this.code) {
-      payload += `&code=${this.code.trim()}`
+      payload += `&code=${this.code.trim()}`;
     }
     if (this.patientName) {
       payload += `&patientName=${this.patientName.trim()}`;
@@ -78,14 +80,17 @@ export class HomeComponent implements OnInit {
     if (this.material) {
       payload += `&material=${this.material.trim()}`;
     }
-    if (this.date && this.date.length) {
-      payload += `&startDate=${parseInt(moment(this.date[0]).format('YYYYMMDD000000'))}&endDate=${parseInt(moment(this.date[1]).format('YYYYMMDD235959'))}`
+    if (this.date && this.date.length && this.date[0] && this.date[1]) {
+      payload += `&startDate=${parseInt(
+        moment(this.date[0]).format('YYYYMMDD000000')
+      )}&endDate=${parseInt(moment(this.date[1]).format('YYYYMMDD235959'))}`;
     }
     this.dmService
       .getOption('', this.REQUEST_URL, '/search?' + payload)
       .subscribe((res: HttpResponse<any>) => {
         if (res.status === 200) {
           this.listData = res.body.data;
+          this.totalPages = res.body.count;
           this.isLoading = false;
         }
       });
@@ -198,5 +203,12 @@ export class HomeComponent implements OnInit {
   }
   formatDate(date: any) {
     return date ? moment(date, 'YYYYMMDDHHmmss').format('DD/MM/YYYY') : '';
+  }
+  copyToClipboard(code: any) {
+    navigator.clipboard.writeText(code);
+  }
+  changePage(event: any) {
+    this.page = event;
+    this.getData()
   }
 }
