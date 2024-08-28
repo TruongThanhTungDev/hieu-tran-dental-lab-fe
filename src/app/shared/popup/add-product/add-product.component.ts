@@ -44,7 +44,7 @@ export class AddProductPopup implements OnInit {
   ) {
     this.productInformation = this.formBuilder.group({
       code: [
-        { value: 'XX-0000000000', disabled: this.isDisable },
+        { value: 'XX000000', disabled: this.isDisable },
         Validators.required,
       ],
       patientName: ['', Validators.required],
@@ -152,7 +152,7 @@ export class AddProductPopup implements OnInit {
     const numberLength = count.toString().length
     let codeSplit = this.productInformation.getRawValue().code.split('-');
     let numberRegix = codeSplit[1];
-    numberRegix = numberRegix.slice(0, 10 - numberLength);
+    numberRegix = numberRegix.slice(0, 6 - numberLength);
     numberRegix += count.toString();
     codeSplit[1] = numberRegix;
     const result = codeSplit.map((item: any) => item).join('-');
