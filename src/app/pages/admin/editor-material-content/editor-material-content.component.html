@@ -1,0 +1,62 @@
+<nz-spin [nzSpinning]="isLoading">
+  <div class="flex flex-col">
+    <div class="text-3xl font-bold mb-10">
+      Quản lý bài viết
+    </div>
+    <div class="text-[12px] md:text-base">
+      <div class="mb-4">
+        <button nz-button nzType="primary" (click)="addData()">Thêm mới bài viết</button>
+      </div>
+    </div>
+    <div class="hidden md:block">
+      <nz-table #basicTable [nzData]="listData" [nzScroll]="{ y: '400px' }">
+        <thead>
+          <tr>
+            <th>Tên bài viết</th>
+            <th>Ngày tạo</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of basicTable.data" class="cursor-pointer">
+            <td>
+              {{data.title}}
+            </td>
+            <td>
+              {{formatDate(data.createdAt)}}
+            </td>
+            <td class="flex items-center justify-center">
+              <div class="flex gap-4">
+                <button nz-button nzType="primary"><span nz-icon nzType="edit" (click)="editData(data)"></span></button>
+                <button nz-button nzType="primary" nzDanger><span nz-icon nzType="delete"
+                    (click)="deleteData(data.id)"></span></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
+    <div class="md:hidden block">
+      <div class="flex flex-col gap-4 container-scroll">
+        <div *ngFor="let data of listData">
+          <div class="text-[12px] relative bg-white p-4">
+            <div class="flex gap-4">
+              <div class="w-[100px]">Tên bài viết:</div>
+              <div>{{data.title}}</div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-[100px]">Ngày tạo:</div>
+              <div>{{formatDate(data.createdAt)}}</div>
+            </div>
+            <div class="absolute right-2 top-2 flex flex-col">
+              <button nz-button nzType="primary" nzSize="small"><span nz-icon nzType="edit"
+                  (click)="editData(data)"></span></button>
+              <button nz-button nzType="primary" nzDanger nzSize="small"><span nz-icon nzType="delete"
+                  (click)="deleteData(data.id)"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nz-spin>

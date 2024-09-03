@@ -1,7 +1,7 @@
 <nz-spin [nzSpinning]="isLoading">
   <form nz-form [formGroup]="productInformation">
     <div class="md:grid md:grid-cols-2 md:gap-4">
-      <nz-form-item>
+      <nz-form-item *ngIf="data">
         <nz-form-control>
           <div>Mã số</div>
           <input nz-input placeholder="Mã số" formControlName="code" />
@@ -28,7 +28,7 @@
       <nz-form-item>
         <nz-form-control>
           <div>Vật liệu</div>
-          <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Chọn vật liệu" class="w-full" formControlName="material" (ngModelChange)="changeMaterial($event)">
+          <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Chọn vật liệu" class="w-full" formControlName="material">
             <nz-option *ngFor="let item of listMaterial" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
           </nz-select>
         </nz-form-control>

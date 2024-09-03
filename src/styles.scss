@@ -6,5 +6,8 @@
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 
 body {
-  font-family: 'Open Sans'!important;
+  font-family: 'Open Sans', sans-serif!important;
+}
+.open-sans {
+  font-family: 'Open Sans', sans-serif;
 }

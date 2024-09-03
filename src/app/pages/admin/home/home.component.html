@@ -12,74 +12,78 @@
           <div>
             Tìm kiếm theo tên bệnh nhân
           </div>
-          <input nz-input placeholder="Nhập tên bệnh nhân" [(ngModel)]="patientName" />
+          <input nz-input placeholder="Nhập tên bệnh nhân" [(ngModel)]="patientName" (keyup.enter)="filterData()"/>
         </div>
         <div>
           <div>
             Tìm kiếm theo mã số
           </div>
-          <input nz-input placeholder="Nhập mã số" [(ngModel)]="code" />
+          <input nz-input placeholder="Nhập mã số" [(ngModel)]="code" (keyup.enter)="filterData()"/>
         </div>
         <div>
           <div>
             Tìm kiếm theo phòng khám/bác sĩ
           </div>
-          <input nz-input placeholder="Nhập phòng khám/bác sĩ" [(ngModel)]="doctor" />
+          <input nz-input placeholder="Nhập phòng khám/bác sĩ" [(ngModel)]="doctor" (keyup.enter)="filterData()"/>
         </div>
         <div>
           <div>
             Tìm kiếm theo hạn sử dụng
           </div>
           <div class="md:block hidden">
-            <nz-range-picker nzFormat="dd/MM/yyyy" class="w-full" [(ngModel)]="date"></nz-range-picker>
+            <nz-range-picker nzFormat="dd/MM/yyyy" class="w-full" [(ngModel)]="date"  (ngModelChange)="changeDate($event)" [nzAllowClear]="true"></nz-range-picker>
           </div>
           <div class="flex gap-2 md:hidden">
             <nz-date-picker [(ngModel)]="date[0]" nzPlaceHolder="Ngày bắt đầu" class="w-full"
-              nzFormat="dd/MM/yyyy"></nz-date-picker>
+              nzFormat="dd/MM/yyyy" (ngModelChange)="filterData()"></nz-date-picker>
             <nz-date-picker [(ngModel)]="date[1]" nzPlaceHolder="Ngày kết thúc" class="w-full"
-              nzFormat="dd/MM/yyyy"></nz-date-picker>
+              nzFormat="dd/MM/yyyy"  (ngModelChange)="filterData()"></nz-date-picker>
           </div>
         </div>
         <div>
           <div>
             Tìm kiếm theo vật liệu
           </div>
-          <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Chọn vật liệu" class="w-full" [(ngModel)]="material">
+          <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Chọn vật liệu" class="w-full" [(ngModel)]="material" (ngModelChange)="filterData()">
             <nz-option *ngFor="let item of listMaterial" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
           </nz-select>
         </div>
       </div>
     </div>
-    <nz-table class="hidden md:block" #basicTable [nzData]="listData" [nzScroll]="{ y: '400px' }">
-      <thead>
-        <tr>
-          <th>Mã số</th>
-          <th>Tên bệnh nhân</th>
-          <th>Phòng Khám - Bác sĩ</th>
-          <th>Số răng</th>
-          <th>Vật liệu</th>
-          <th>Thời gian bảo hành</th>
-          <th>Thao tác</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of basicTable.data" class="cursor-pointer">
-          <td>{{ data.code }}</td>
-          <td>{{ data.patientName }}</td>
-          <td>{{ data.doctorClinic }}</td>
-          <td>{{ data.numberOfTeeth }}</td>
-          <td>{{ data.material }}</td>
-          <td>{{ formatDate(data.startDate) }} - {{formatDate(data.endDate)}}</td>
-          <td class="flex items-center justify-center">
-            <div class="flex gap-4">
-              <button nz-button nzType="primary"><span nz-icon nzType="edit" (click)="editProduct(data)"></span></button>
-              <button nz-button nzType="primary" nzDanger><span nz-icon nzType="delete"
-                  (click)="deleteData(data.id)"></span></button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </nz-table>
+    <div class="hidden md:block">
+      <nz-table #basicTable [nzFrontPagination]="false" [nzData]="listData"
+        [nzScroll]="{ y: '400px' }">
+        <thead>
+          <tr>
+            <th>Mã số</th>
+            <th>Tên bệnh nhân</th>
+            <th>Phòng Khám - Bác sĩ</th>
+            <th>Số răng</th>
+            <th>Vật liệu</th>
+            <th>Thời gian bảo hành</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of basicTable.data" class="cursor-pointer">
+            <td>{{ data.code }}</td>
+            <td>{{ data.patientName }}</td>
+            <td>{{ data.doctorClinic }}</td>
+            <td>{{ data.numberOfTeeth }}</td>
+            <td>{{ data.material }}</td>
+            <td>{{ formatDate(data.startDate) }} - {{formatDate(data.endDate)}}</td>
+            <td class="flex items-center justify-center">
+              <div class="flex gap-4">
+                <button nz-button nzType="primary"><span nz-icon nzType="edit" (click)="editProduct(data)"></span></button>
+                <button nz-button nzType="primary" nzDanger><span nz-icon nzType="delete"
+                    (click)="deleteData(data.id)"></span></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+      <nz-pagination [nzPageIndex]="page" [nzTotal]="totalPages" (nzPageIndexChange)="changePage($event)"></nz-pagination>
+    </div>
     <div class="md:hidden block">
       <div class="flex flex-col gap-4 container-scroll">
         <nz-collapse *ngFor="let data of listData">
@@ -126,7 +130,7 @@
           </nz-collapse-panel>
         </nz-collapse>
       </div>
-      <nz-pagination [nzPageIndex]="page" [nzTotal]="15" (nzPageIndexChange)="changePage($event)"></nz-pagination>
+      <nz-pagination [nzPageIndex]="page" [nzTotal]="totalPages" (nzPageIndexChange)="changePage($event)"></nz-pagination>
     </div>
   </div>
 </nz-spin>

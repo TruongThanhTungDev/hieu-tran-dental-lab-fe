@@ -1,16 +1,42 @@
-<nz-layout class="max-h-screen h-screen">
+<nz-layout class="max-h-screen h-screen relative">
   <nz-sider nzCollapsible [nzCollapsed]="true" nzWidth="200px" class="text-white font-bold py-3 md:block hidden">
     <ul nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-menu-item>
+      <li nz-menu-item [routerLink]="['home']">
         <span nz-icon nzType="pie-chart"></span>
         <span>Quản lý sản phẩm</span>
       </li>
-      <li nz-menu-item>
-        <span nz-icon nzType="user"></span>
-        <span>Tài khoản</span>
+      <li nz-menu-item [routerLink]="['editor-article']">
+        <span nz-icon nzType="form"></span>
+        <span>Bài viết sản phẩm</span>
+      </li>
+      <li nz-menu-item [routerLink]="['topic']">
+        <span nz-icon nzType="book"></span>
+        <span>Quản lý chủ đề</span>
       </li>
     </ul>
   </nz-sider>
+  <div class="menu-bar z-10 absolute right-4 top-6" (click)="open()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+  <nz-drawer [nzClosable]="false" [nzVisible]="visible" [nzPlacement]="placement" nzTitle="" [nzWidth]="250"
+    (nzOnClose)="close()">
+    <ng-container *nzDrawerContent>
+      <ul class="text-black flex flex-col gap-4">
+        <li class="flex items-center gap-2" (click)="close()" [routerLink]="['home']">
+          <span nz-icon nzType="pie-chart"></span>
+          <span>Quản lý sản phẩm</span>
+        </li>
+        <li class="flex items-center gap-2" (click)="close()" [routerLink]="['editor-article']">
+          <span nz-icon nzType="form"></span>
+          <span>Bài viết sản phẩm</span>
+        </li>
+        <li class="flex items-center gap-2" (click)="close()" [routerLink]="['topic']">
+          <span nz-icon nzType="book"></span>
+          <span>Quản lý chủ đề</span>
+        </li>
+      </ul>
+    </ng-container>
+  </nz-drawer>
   <nz-layout>
     <nz-content>
       <div class="p-4">

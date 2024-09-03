@@ -16,6 +16,8 @@ import { NzIconModule } from "ng-zorro-antd/icon";
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzSpinModule } from "ng-zorro-antd/spin";
+import { TopicComponent } from "../pages/admin/topic/topic.component";
+import { EditorMaterialContentComponent } from "../pages/admin/editor-material-content/editor-material-content.component";
 registerLocaleData(en);
 @NgModule({
   imports: [
@@ -32,9 +34,9 @@ registerLocaleData(en);
     NzIconModule,
     NzCollapseModule,
     NzPaginationModule,
-    NzSpinModule
+    NzSpinModule,
   ],
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, TopicComponent, EditorMaterialContentComponent],
   providers: [],
 })
 export class AdminLayoutModule {}

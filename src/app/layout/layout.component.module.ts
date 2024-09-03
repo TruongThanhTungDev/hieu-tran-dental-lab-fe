@@ -11,6 +11,8 @@ import { NzInputModule } from "ng-zorro-antd/input";
 import { CarouselModule } from "ngx-owl-carousel-o";
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { GioiThieuComponent } from "../pages/gioi-thieu/gioi-thieu.component";
+import { SanPhamComponent } from "../pages/san-pham/san-pham.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -24,7 +26,7 @@ import { NzCollapseModule } from 'ng-zorro-antd/collapse';
     NzIconModule,
     NzCollapseModule,
   ],
-  declarations: [HomePageComponent, TraCuuBaoHanh],
+  declarations: [HomePageComponent, TraCuuBaoHanh, GioiThieuComponent, SanPhamComponent],
   providers: [],
 })
 export class LayoutModule {}

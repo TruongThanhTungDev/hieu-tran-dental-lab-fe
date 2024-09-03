@@ -27,7 +27,7 @@ export class LayoutComponent {
     },
     {
       name: 'Bảo hành',
-      path: '/bao-hanh',
+      path: '/tra-cuu-bao-hanh',
     },
     {
       name: 'Liên hệ',
@@ -54,6 +54,6 @@ export class LayoutComponent {
   }
   pushToRouter(path: any) {
     this.router.navigate([path]);
-    this.close()
+    this.close();
   }
 }

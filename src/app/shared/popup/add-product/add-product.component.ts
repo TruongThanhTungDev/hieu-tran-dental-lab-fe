@@ -44,8 +44,7 @@ export class AddProductPopup implements OnInit {
   ) {
     this.productInformation = this.formBuilder.group({
       code: [
-        { value: 'XX000000', disabled: this.isDisable },
-        Validators.required,
+        { value: '', disabled: this.isDisable },
       ],
       patientName: ['', Validators.required],
       sex: [0],
@@ -68,8 +67,6 @@ export class AddProductPopup implements OnInit {
         startDate: moment(this.data.startDate, 'YYYYMMDDHHmmss').toDate(),
         endDate: moment(this.data.endDate, 'YYYYMMDDHHmmss').toDate(),
       });
-    } else {
-      this.countProduct();
     }
   }
   submitForm() {
@@ -78,7 +75,7 @@ export class AddProductPopup implements OnInit {
       return
     }
     this.isLoading = true;
-    const payload = {
+    let payload = {
       ...this.productInformation.getRawValue(),
       startDate: this.productInformation.value.startDate
         ? parseInt(
@@ -95,6 +92,7 @@ export class AddProductPopup implements OnInit {
           )
         : '',
     };
+    delete payload.code
     if (!this.data) {
       this.dmService.postOption(payload, this.REQUEST_URL, '/create').subscribe(
         (res: HttpResponse<any>) => {

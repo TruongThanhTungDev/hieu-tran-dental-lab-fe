@@ -24,6 +24,9 @@ import { NzCarouselModule } from "ng-zorro-antd/carousel";
 import { HeadersInterceptor } from "./headers-intercepter";
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import { AddTopicPopupComponent } from "./shared/popup/add-topic/add-topic.component";
+import { AddArticlePopup } from "./shared/popup/add-article/add-article.component";
+import { AngularEditorModule } from "@kolkov/angular-editor";
 registerLocaleData(vi);
 @NgModule({
   declarations: [
@@ -32,6 +35,8 @@ registerLocaleData(vi);
     AdminLayoutComponent,
     LoginComponent,
     AddProductPopup,
+    AddTopicPopupComponent,
+    AddArticlePopup,
   ],
   imports: [
     CommonModule,
@@ -52,6 +57,7 @@ registerLocaleData(vi);
     NzCarouselModule,
     NzSpinModule,
     NzDrawerModule,
+    AngularEditorModule,
   ],
   bootstrap: [AppComponent],
   providers: [

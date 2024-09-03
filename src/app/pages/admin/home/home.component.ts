@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   code: any;
   patientName: any;
   doctor: any;
-  date = [null, null];
+  date: any[] = [];
   material: any;
   numberOfTeeth: any;
   page = 1;
@@ -209,6 +209,15 @@ export class HomeComponent implements OnInit {
   }
   changePage(event: any) {
     this.page = event;
-    this.getData()
+    this.getData();
+  }
+  filterData() {
+    this.page = 1;
+    this.getData();
+  }
+  changeDate(event: any) {
+    this.date[0] = event[0]
+    this.date[1] = event[1]
+    this.filterData()
   }
 }

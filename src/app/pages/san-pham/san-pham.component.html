@@ -1,0 +1,33 @@
+<div class="">
+  <div class="md:max-w-[1200px] md:grid md:grid-cols-3 gap-10 mx-auto py-6 px-4">
+    <div class="md:block hidden">
+      <div *ngFor="let item of listData" class="flex flex-col mb-4">
+        <div class="bg-yellow-600 flex gap-6 items-center font-bold mb-2">
+          <img src="../../../assets/images/why1.png" alt="" class="ml-6">
+          <div class="uppercase text-xl">
+            {{ item.title }}
+          </div>
+        </div>
+        <div *ngFor="let art of item.materials" class="bg-neutral-400 px-6 py-4 mb-2 cursor-pointer" (click)="getDataContentArticle(art.id)">
+          {{ art.title }}
+        </div>
+      </div>
+    </div>
+    <div *ngIf="content" class="md:col-span-2 text-white" [innerHTML]="content.description">
+    </div>
+    <div class="block md:hidden">
+      <div *ngFor="let item of listData" class="flex flex-col mb-4">
+        <div class="bg-yellow-600 flex gap-6 items-center font-bold mb-2">
+          <img src="../../../assets/images/why1.png" alt="" class="ml-6">
+          <div class="uppercase text-xl">
+            {{ item.title }}
+          </div>
+        </div>
+        <div *ngFor="let art of item.materials" class="bg-neutral-400 px-6 py-4 mb-2 cursor-pointer"
+          (click)="getDataContentArticle(art.id)">
+          {{ art.title }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
